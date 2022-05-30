@@ -1,11 +1,22 @@
 from flask import Flask, render_template
+from sqlalchemy import create_engine
 
 app = Flask(__name__)
+engine = create_engine("postgresql:///heka_database")
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    query = f"""
+       SELECT *
+       FROM doctors;
+       """
+
+    with engine.connect() as connection:
+        user = connection.execute(query).fetchone()
+        print(user)
+
+    return render_template('index.html', user=user)
 
 
 @app.route('/add-doctor')
