@@ -703,12 +703,12 @@
                         <a href="#" class="ms-text-primary">Doctors List</a>
                     </div>
                     <div class="ms-panel-body">
-                        <form class="needs-validation" novalidate>
+                        <form action="/add-doctor" method="POST" class="needs-validation" novalidate>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom001">First Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom001"
+                                        <input name="first-name" type="text" class="form-control" id="validationCustom001"
                                                placeholder="Enter First Name" required>
 
                                     </div>
@@ -716,7 +716,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom002">Last name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom002"
+                                        <input name="last-name" type="text" class="form-control" id="validationCustom002"
                                                placeholder="Enter Last Name" required>
 
                                     </div>
@@ -726,7 +726,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom003">Email Address</label>
                                     <div class="input-group">
-                                        <input type="email" class="form-control" id="validationCustom003"
+                                        <input name="email" type="email" class="form-control" id="validationCustom003"
                                                placeholder="Enter Email" required>
 
                                     </div>
@@ -734,7 +734,7 @@
                                 <div class="col-md-6 mb-2">
                                     <label for="validationCustom004">Password</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" id="validationCustom004"
+                                        <input name="password" type="password" class="form-control" id="validationCustom004"
                                                placeholder="Enter Password" required>
 
                                     </div>
@@ -745,7 +745,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom005">Designation</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom005"
+                                        <input name="designation" type="text" class="form-control" id="validationCustom005"
                                                placeholder="Enter Designation" required>
 
                                     </div>
@@ -753,7 +753,7 @@
                                 <div class="col-md-6 mb-2">
                                     <label for="validationCustom6">Department</label>
                                     <div class="input-group">
-                                        <select class="form-control" id="validationCustom6" required>
+                                        <select name="department" class="form-control" id="validationCustom6" required>
                                             <option value="">Neurology</option>
                                             <option value="">Gynaecology</option>
                                             <option value="">Microbiology</option>
@@ -771,7 +771,7 @@
                                 <div class="col-md-6 mb-2">
                                     <label for="validationCustom007">Address</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom007"
+                                        <input name="address" type="text" class="form-control" id="validationCustom007"
                                                placeholder="Address" required>
 
                                     </div>
@@ -779,7 +779,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom008">Specialist</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom008"
+                                        <input name="specialist" type="text" class="form-control" id="validationCustom008"
                                                placeholder="Specialist" required>
 
                                     </div>
@@ -792,18 +792,15 @@
                                 <div class="col-md-6 mb-2">
                                     <label for="validationCustom009">Mobile</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom009"
+                                        <input name="mobile" type="text" class="form-control" id="validationCustom009"
                                                placeholder="Mobile" required>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>Doctor Image</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose
-                                            file...</label>
-
+                                    <label for="validationCustom009">Doctor Image</label>
+                                    <div class="input-group">
+                                        <input name="image" type="text" class="form-control" id="validatedCustomFile" placeholder="Image URL" required>
                                     </div>
                                 </div>
                             </div>
@@ -812,7 +809,7 @@
                                 <div class="col-md-12 mb-2">
                                     <label>Short Biography</label>
                                     <div class="input-group">
-                                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                                        <textarea name="biography" class="form-control" id="exampleTextarea" rows="3"></textarea>
 
                                     </div>
                                 </div>
@@ -824,7 +821,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label>Date of Birth</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom012"
+                                        <input name="date-of-birth" type="text" class="form-control" id="validationCustom012"
                                                placeholder="Date of Birth" required>
 
                                     </div>
@@ -832,7 +829,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom220">Blood Group</label>
                                     <div class="input-group">
-                                        <select class="form-control" id="validationCustom220" required>
+                                        <select name="blood-group" class="form-control" id="validationCustom220" required>
                                             <option value="">A+</option>
                                             <option value="">A-</option>
                                             <option value="">B+</option>

@@ -1,13 +1,24 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from sqlalchemy import create_engine
 
 app = Flask(__name__)
-# engine = create_engine("postgresql:///heka_database")
+
+SQLALCHEMY_DATABASE_URI = "postgresql://sphudzeeatsxwn:29ca33d9eb3c774422bb7e65d20bd2cd4f5b6da215f23044890b0b48204d5b76@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dc0sqadmrkr3t3"
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+engine = create_engine(SQLALCHEMY_DATABASE_URI)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    select_query = f"""
+                SELECT first_name, specialist, image
+                FROM doctors
+                """
+
+    with engine.connect() as connection:
+        doctors = connection.execute(select_query).fetchall()
+
+    return render_template('index.html', doctors=doctors)
 
 
 @app.route('/add-doctor')
@@ -15,9 +26,44 @@ def add_doctor():
     return render_template('pages/doctor/add-doctor.html')
 
 
+@app.route("/add-doctor", methods=["POST"])
+def handle_add_doctor():
+    first_name = request.form["first-name"]
+    last_name = request.form["last-name"]
+    email = request.form["email"]
+    password = request.form["password"]
+    designation = request.form["designation"]
+    department = request.form["department"]
+    address = request.form["address"]
+    specialist = request.form["specialist"]
+    mobile = request.form["mobile"]
+    image = request.form["image"]
+    biography = request.form["biography"]
+    date_of_birth = request.form["date-of-birth"]
+    blood_group = request.form["blood-group"]
+
+    insert_query = f"""
+    INSERT INTO doctors(first_name, last_name, email, password, designation, department, address, specialist, mobile, image, biography, date_of_birth, blood_group)
+    VALUES ('{first_name}', '{last_name}', '{email}', '{password}', '{designation}', '{department}', '{address}', '{specialist}', '{mobile}', '{image}', '{biography}', '{date_of_birth}', '{blood_group}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("doctor_list"))
+
+
 @app.route('/doctor-list')
 def doctor_list():
-    return render_template('pages/doctor/doctor-list.html')
+    select_query = f"""
+                SELECT first_name, last_name, specialist, address, image
+                FROM doctors
+                """
+
+    with engine.connect() as connection:
+        doctors = connection.execute(select_query).fetchall()
+
+    return render_template('pages/doctor/doctor-list.html', doctors=doctors)
 
 
 @app.route('/add-patient')
