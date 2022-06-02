@@ -41,10 +41,11 @@ def handle_add_doctor():
     biography = request.form["biography"]
     date_of_birth = request.form["date-of-birth"]
     blood_group = request.form["blood-group"]
+    sex = request.form["sex"]
 
     insert_query = f"""
-    INSERT INTO doctors(first_name, last_name, email, password, designation, department, address, specialist, mobile, image, biography, date_of_birth, blood_group)
-    VALUES ('{first_name}', '{last_name}', '{email}', '{password}', '{designation}', '{department}', '{address}', '{specialist}', '{mobile}', '{image}', '{biography}', '{date_of_birth}', '{blood_group}')
+    INSERT INTO doctors(first_name, last_name, email, password, designation, department, address, specialist, mobile, image, biography, date_of_birth, blood_group, sex)
+    VALUES ('{first_name}', '{last_name}', '{email}', '{password}', '{designation}', '{department}', '{address}', '{specialist}', '{mobile}', '{image}', '{biography}', '{date_of_birth}', '{blood_group}', '{sex}')
     """
 
     with engine.connect() as connection:
@@ -71,9 +72,47 @@ def add_patient():
     return render_template('pages/patient/add-patient.html')
 
 
+@app.route("/add-patient", methods=["POST"])
+def handle_add_patient():
+    first_name = request.form["first-name"]
+    last_name = request.form["last-name"]
+    create_id = request.form["create-id"]
+    mobile = request.form["mobile"]
+    email = request.form["email"]
+    blood_group = request.form["blood-group"]
+    occupation = request.form["occupation"]
+    marital_status = request.form["marital-status"]
+    image = request.form["image"]
+    date_of_birth = request.form["date-of-birth"]
+    address = request.form["address"]
+    history = request.form["history"]
+    prefer_to = request.form["prefer-to"]
+    sex = request.form["sex"]
+    age = request.form["age"]
+    disease = request.form["disease"]
+
+    insert_query = f"""
+    INSERT INTO patients(first_name, last_name, create_id, mobile, email, blood_group, occupation, marital_status, image, date_of_birth, address, history, prefer_to, sex, age, disease)
+    VALUES ('{first_name}', '{last_name}', '{create_id}', '{mobile}', '{email}', '{blood_group}', '{occupation}', '{marital_status}', '{image}', '{date_of_birth}', '{address}', '{history}', '{prefer_to}', '{sex}', '{age}', '{disease}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("patient_list"))
+
+
 @app.route('/patient-list')
 def patient_list():
-    return render_template('pages/patient/patient-list.html')
+    select_query = f"""
+                SELECT first_name, address, mobile, email, age, disease
+                FROM patients
+                """
+
+    with engine.connect() as connection:
+        patients = connection.execute(select_query).fetchall()
+
+    return render_template('pages/patient/patient-list.html', patients=patients)
 
 
 @app.route('/add-department')
