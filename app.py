@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+import json
+
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from sqlalchemy import create_engine
 
 app = Flask(__name__)
@@ -104,15 +106,20 @@ def handle_add_patient():
 
 @app.route('/patient-list')
 def patient_list():
+    return render_template('pages/patient/patient-list.html')
+
+
+@app.route("/api/patients")
+def patients_api():
     select_query = f"""
-                SELECT first_name, address, mobile, email, age, disease
-                FROM patients
-                """
+                    SELECT first_name, address, mobile, email, age, disease
+                    FROM patients
+                    """
 
     with engine.connect() as connection:
         patients = connection.execute(select_query).fetchall()
 
-    return render_template('pages/patient/patient-list.html', patients=patients)
+    return jsonify({'result': [dict(row) for row in patients]})
 
 
 @app.route('/add-department')
