@@ -1,18 +1,18 @@
-async function fun() {
+async function funPatients() {
     return fetch('/api/patients').then(res => res.json());
 }
 
+async function funDepartments() {
+    return fetch('/api/departments').then(res => res.json());
+}
+
+async function funBeds() {
+    return fetch('/api/beds').then(res => res.json());
+}
+
+
 (async function ($) {
     'use strict';
-
-    let obj;
-
-    fetch('/api/patients')
-        .then(res => res.json())
-        .then(data => obj = data);
-    // .then(() => console.log(obj.result[0].address));
-
-    const data = await fun();
 
     var dataSet = [
         ["<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'> Denise", "Old York, Abington", "Fever", "7", "	(836) 257 1379", "denisestevens@example.com", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
@@ -53,9 +53,10 @@ async function fun() {
         ["<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>  Unity", "New Haven, Columbia", "Celiac ", "22", "(634) 09 3833", "butler@example.com", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>"]
     ];
 
-    for (let i = 0; i < data.result.length; i++) {
-        dataSet.push(["<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'> " + data.result[i].first_name, data.result[i].address, data.result[i].disease, data.result[i].age, data.result[i].mobile, data.result[i].email, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
-        console.log(data.result[i].first_name);
+    const patients_data = await funPatients();
+
+    for (let i = 0; i < patients_data.result.length; i++) {
+        dataSet.push([`<img src=${patients_data.result[i].image} style='width:50px; height:30px;'> ` + patients_data.result[i].first_name, patients_data.result[i].address, patients_data.result[i].disease, patients_data.result[i].age, patients_data.result[i].mobile, patients_data.result[i].email, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
     }
 
     var dataSet1 = [
@@ -75,6 +76,15 @@ async function fun() {
         ["14", "Kyle", "Neurology", "Linda", "<span class='badge badge-outline-success'>Active</span>", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
 
     ];
+
+    let count = 14;
+    const departments_data = await funDepartments();
+
+    for (let i = 0; i < departments_data.result.length; i++) {
+        count++;
+        dataSet1.push([count, departments_data.result[i].doctor_name, departments_data.result[i].department_name, departments_data.result[i].department_head, `<span class='badge badge-outline-success'>${departments_data.result[i].status}</span>`, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    }
+
 
     var dataSet2 = [
         ["1", "Denise", "Neurology", "Sunday", "9:00", "11:00", "<span class='badge badge-outline-success'>Active</span>", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
@@ -152,6 +162,14 @@ async function fun() {
         ["14", "jennifer", "AC-2nd Floor", "Lorem Ipsum is simply dummy text of the printing.", "1/2", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
 
     ];
+
+    const beds_data = await funBeds();
+    let count_beds = 14;
+
+    for (let i = 0; i < beds_data.result.length; i++) {
+        count_beds++;
+        dataSet5.push([count, beds_data.result[i].first_name, beds_data.result[i].bed_type, beds_data.result[i].description, beds_data.result[i].bed_capacity, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    }
 
 
     var dataSet6 = [

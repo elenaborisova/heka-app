@@ -704,13 +704,13 @@
                         <a href="#" class="ms-text-primary  ">Department List</a>
                     </div>
                     <div class="ms-panel-body">
-                        <form class="needs-validation" novalidate>
+                        <form  action="/add-department" method="POST" class="needs-validation" novalidate>
                             <div class="form-row">
 
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom001">Doctor Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom001"
+                                        <input name="doctor-name" type="text" class="form-control" id="validationCustom001"
                                                placeholder="Enter Doctor Name" required>
 
                                     </div>
@@ -719,7 +719,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom002">Department Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom002"
+                                        <input name="department-name" type="text" class="form-control" id="validationCustom002"
                                                placeholder="Enter Department Name" required>
 
                                     </div>
@@ -732,7 +732,7 @@
                                 <div class="col-md-6 mb-2">
                                     <label>Department Head</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom004"
+                                        <input name="department-head" type="text" class="form-control" id="validationCustom004"
                                                placeholder="Enter Department Head Name" required>
 
                                     </div>
@@ -746,14 +746,14 @@
                                     <ul class="ms-list d-flex">
                                         <li class="ms-list-item pl-0">
                                             <label class="ms-checkbox-wrap">
-                                                <input type="radio" name="statusExample" value="">
+                                                <input name="status" type="radio" value="Active">
                                                 <i class="ms-checkbox-check"></i>
                                             </label>
                                             <span> Active </span>
                                         </li>
                                         <li class="ms-list-item">
                                             <label class="ms-checkbox-wrap">
-                                                <input type="radio" name="statusExample" value="" checked="">
+                                                <input type="radio" name="status" value="Inactive" checked="">
                                                 <i class="ms-checkbox-check"></i>
                                             </label>
                                             <span> Inactive </span>

@@ -14,7 +14,7 @@
     options: {
       title: {
         display: true,
-        text: 'Number of staffs according to deparments'
+        text: 'Number of staff according to departments'
       }
     }
   });
@@ -27,7 +27,7 @@
           labels: ["Emergency", "ICU", "Neurology", "Cardiology", "Gynaecology"],
           datasets: [
             {
-              label: "Employes",
+              label: "Employees",
               backgroundColor: ["#357ffa", "#f7b11b","#ff6c60","#8663e1","#08bf6f"],
               data: [478,1267,1734,2384,133]
             }
@@ -37,7 +37,7 @@
           legend: { display: false },
           title: {
             display: true,
-            text: 'Maximum number of employes in departments'
+            text: 'Maximum number of employees in departments'
           }
         }
     });

@@ -112,7 +112,7 @@ def patient_list():
 @app.route("/api/patients")
 def patients_api():
     select_query = f"""
-                    SELECT first_name, address, mobile, email, age, disease
+                    SELECT first_name, address, mobile, email, age, disease, image
                     FROM patients
                     """
 
@@ -127,34 +127,40 @@ def add_department():
     return render_template('pages/department/add-department.html')
 
 
+@app.route("/add-department", methods=["POST"])
+def handle_add_department():
+    doctor_name = request.form["doctor-name"]
+    department_name = request.form["department-name"]
+    department_head = request.form["department-head"]
+    status = request.form["status"]
+
+    insert_query = f"""
+    INSERT INTO departments(doctor_name, department_name, department_head, status)
+    VALUES ('{doctor_name}', '{department_name}', '{department_head}', '{status}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("department_list"))
+
+
 @app.route('/department-list')
 def department_list():
     return render_template('pages/department/department-list.html')
 
 
-@app.route('/add-schedule')
-def add_schedule():
-    return render_template('pages/doctor-schedule/add-schedule.html')
+@app.route("/api/departments")
+def departments_api():
+    select_query = f"""
+                    SELECT doctor_name, department_name, department_head, status
+                    FROM departments
+                    """
 
+    with engine.connect() as connection:
+        departments = connection.execute(select_query).fetchall()
 
-@app.route('/schedule-list')
-def schedule_list():
-    return render_template('pages/doctor-schedule/schedule-list.html')
-
-
-@app.route('/add-payment')
-def add_payment():
-    return render_template('pages/payment/add-payment.html')
-
-
-@app.route('/payment-list')
-def payment_list():
-    return render_template('pages/payment/payment-list.html')
-
-
-@app.route('/payment-invoice')
-def payment_invoice():
-    return render_template('pages/payment/payment-invoice.html')
+    return jsonify({'result': [dict(row) for row in departments]})
 
 
 @app.route('/doctor-report')
@@ -217,19 +223,44 @@ def add_bed():
     return render_template('pages/bed-manager/add-bed.html')
 
 
+@app.route("/add-bed", methods=["POST"])
+def handle_add_bed():
+    first_name = request.form["first-name"]
+    last_name = request.form["last-name"]
+    room_number = request.form["room-number"]
+    bed_type = request.form["bed-type"]
+    admit_date = request.form["admit-date"]
+    bed_capacity = request.form["bed-capacity"]
+    description = request.form["description"]
+    sex = request.form["sex"]
+
+    insert_query = f"""
+    INSERT INTO beds(first_name, last_name, room_number, bed_type, admit_date, bed_capacity, description, sex)
+    VALUES ('{first_name}', '{last_name}', '{room_number}', '{bed_type}', '{admit_date}', '{bed_capacity}', '{description}', '{sex}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("bed_list"))
+
+
 @app.route('/bed-list')
 def bed_list():
     return render_template('pages/bed-manager/bed-list.html')
 
 
-@app.route('/add-notice')
-def add_notice():
-    return render_template('pages/notice/add-notice.html')
+@app.route("/api/beds")
+def beds_api():
+    select_query = f"""
+                    SELECT first_name, bed_type, description, bed_capacity
+                    FROM beds
+                    """
 
+    with engine.connect() as connection:
+        beds = connection.execute(select_query).fetchall()
 
-@app.route('/notice-list')
-def notice_list():
-    return render_template('pages/notice/notice-list.html')
+    return jsonify({'result': [dict(row) for row in beds]})
 
 
 if __name__ == '__main__':
