@@ -207,8 +207,6 @@
                 <li><a href="/nurse-list">Nurse List</a></li>
                 <li><a href="/add-pharmacist">Add Pharmacist</a></li>
                 <li><a href="/pharmacist-list">Pharmacist List</a></li>
-                <li><a href="/add-representative">Add Representative</a></li>
-                <li><a href="/representative-list">Representative List</a></li>
             </ul>
         </li>
         <!-- /Human Resource -->
@@ -704,12 +702,12 @@
                         <a href="#" class="ms-text-primary">Pharmacist List</a>
                     </div>
                     <div class="ms-panel-body">
-                        <form class="needs-validation" novalidate>
+                        <form action="/add-pharmacist" method="POST"  class="needs-validation" novalidate>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom001">First Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom001"
+                                        <input name="first-name" type="text" class="form-control" id="validationCustom001"
                                                placeholder="Enter First Name" required>
 
                                     </div>
@@ -718,7 +716,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom002">Last name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom002"
+                                        <input name="last-name" type="text" class="form-control" id="validationCustom002"
                                                placeholder="Enter Last Name" required>
 
                                     </div>
@@ -728,7 +726,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="validationCustom003">Email Address</label>
                                     <div class="input-group">
-                                        <input type="email" class="form-control" id="validationCustom003"
+                                        <input name="email" type="email" class="form-control" id="validationCustom003"
                                                placeholder="Enter Email" required>
 
                                     </div>
@@ -737,7 +735,7 @@
                                 <div class="col-md-6 mb-2">
                                     <label for="validationCustom004">Password</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" id="validationCustom004"
+                                        <input name="password" type="password" class="form-control" id="validationCustom004"
                                                placeholder="Enter Password" required>
 
                                     </div>
@@ -749,7 +747,7 @@
                                 <div class="col-md-6 mb-2">
                                     <label for="validationCustom005">Mobile</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="validationCustom005"
+                                        <input name="mobile" type="text" class="form-control" id="validationCustom005"
                                                placeholder="Mobile" required>
 
                                     </div>
@@ -757,11 +755,8 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label>Picture Upload</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose
-                                            file...</label>
-
+                                    <div class="input-group">
+                                         <input name="image" type="text" class="form-control" id="validatedCustomFile" placeholder="Image URL" required>
                                     </div>
                                 </div>
                             </div>
@@ -770,7 +765,7 @@
                                 <div class="col-md-12 mb-2">
                                     <label>Address</label>
                                     <div class="input-group">
-                                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                                        <textarea name="address" class="form-control" id="exampleTextarea" rows="3"></textarea>
 
                                     </div>
                                 </div>
@@ -782,14 +777,14 @@
                                     <ul class="ms-list d-flex">
                                         <li class="ms-list-item pl-0">
                                             <label class="ms-checkbox-wrap">
-                                                <input type="radio" name="radioExample" value="">
+                                                <input type="radio" name="sex" value="Male">
                                                 <i class="ms-checkbox-check"></i>
                                             </label>
                                             <span> Male </span>
                                         </li>
                                         <li class="ms-list-item">
                                             <label class="ms-checkbox-wrap">
-                                                <input type="radio" name="radioExample" value="" checked="">
+                                                <input type="radio" name="sex" value="Female" checked="">
                                                 <i class="ms-checkbox-check"></i>
                                             </label>
                                             <span> Female </span>
@@ -803,14 +798,14 @@
                                     <ul class="ms-list d-flex">
                                         <li class="ms-list-item pl-0">
                                             <label class="ms-checkbox-wrap">
-                                                <input type="radio" name="statusExample" value="">
+                                                <input type="radio" name="status" value="Active">
                                                 <i class="ms-checkbox-check"></i>
                                             </label>
                                             <span> Active </span>
                                         </li>
                                         <li class="ms-list-item">
                                             <label class="ms-checkbox-wrap">
-                                                <input type="radio" name="statusExample" value="" checked="">
+                                                <input type="radio" name="status" value="Inactive" checked="">
                                                 <i class="ms-checkbox-check"></i>
                                             </label>
                                             <span> Inactive </span>
@@ -819,7 +814,7 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-warning mt-4 d-inline w-20" type="submit">Reset</button>
+                            <button class="btn btn-warning mt-4 d-inline w-20" type="reset">Reset</button>
                             <button class="btn btn-primary mt-4 d-inline w-20" type="submit">Submit</button>
                         </form>
 

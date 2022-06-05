@@ -1,11 +1,10 @@
-import json
-
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from sqlalchemy import create_engine
 
 app = Flask(__name__)
 
-SQLALCHEMY_DATABASE_URI = "postgresql://sphudzeeatsxwn:29ca33d9eb3c774422bb7e65d20bd2cd4f5b6da215f23044890b0b48204d5b76@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dc0sqadmrkr3t3"
+SQLALCHEMY_DATABASE_URI = "postgresql://dpmntntgtgaxfq:80dc3621682ec42eec6ba464eb1226cebf7881dc1d8dad871e11339aa3acd473" \
+                          "@ec2-34-242-84-130.eu-west-1.compute.amazonaws.com:5432/d1kqq6n590tnvn"
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 
@@ -183,19 +182,28 @@ def add_employee():
     return render_template('pages/human-resource/add-employee.html')
 
 
-@app.route('/add-nurse')
-def add_nurse():
-    return render_template('pages/human-resource/add-nurse.html')
+@app.route("/add-employee", methods=["POST"])
+def handle_add_employee():
+    user_role = request.form["user-role"]
+    first_name = request.form["first-name"]
+    last_name = request.form["last-name"]
+    email = request.form["email"]
+    password = request.form["password"]
+    mobile = request.form["mobile"]
+    blood_group = request.form["blood-group"]
+    image = request.form["image"]
+    address = request.form["address"]
+    sex = request.form["sex"]
 
+    insert_query = f"""
+    INSERT INTO employees(user_role, first_name, last_name, email, password, mobile, blood_group, image, address, sex)
+    VALUES ('{user_role}', '{first_name}', '{last_name}', '{email}', '{password}', '{mobile}', '{blood_group}', '{image}', '{address}', '{sex}')
+    """
 
-@app.route('/add-pharmacist')
-def add_pharmacist():
-    return render_template('pages/human-resource/add-pharmacist.html')
+    with engine.connect() as connection:
+        connection.execute(insert_query)
 
-
-@app.route('/add-representative')
-def add_representative():
-    return render_template('pages/human-resource/add-representative.html')
+        return redirect(url_for("employee_list"))
 
 
 @app.route('/employee-list')
@@ -203,9 +211,90 @@ def employee_list():
     return render_template('pages/human-resource/employee-list.html')
 
 
+@app.route("/api/employees")
+def employees_api():
+    select_query = f"""
+                    SELECT image, first_name, email, address, mobile
+                    FROM employees
+                    """
+
+    with engine.connect() as connection:
+        employees = connection.execute(select_query).fetchall()
+
+    return jsonify({'result': [dict(row) for row in employees]})
+
+
+@app.route('/add-nurse')
+def add_nurse():
+    return render_template('pages/human-resource/add-nurse.html')
+
+
+@app.route("/add-nurse", methods=["POST"])
+def handle_add_nurse():
+    first_name = request.form["first-name"]
+    last_name = request.form["last-name"]
+    email = request.form["email"]
+    password = request.form["password"]
+    mobile = request.form["mobile"]
+    image = request.form["image"]
+    address = request.form["address"]
+    status = request.form["status"]
+
+    insert_query = f"""
+    INSERT INTO nurses(first_name, last_name, email, password, mobile, image, address, status)
+    VALUES ('{first_name}', '{last_name}', '{email}', '{password}', '{mobile}', '{image}', '{address}', '{status}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("nurse_list"))
+
+
 @app.route('/nurse-list')
 def nurse_list():
     return render_template('pages/human-resource/nurse-list.html')
+
+
+@app.route("/api/nurses")
+def nurses_api():
+    select_query = f"""
+                    SELECT image, first_name, email, address, mobile
+                    FROM nurses
+                    """
+
+    with engine.connect() as connection:
+        nurses = connection.execute(select_query).fetchall()
+
+    return jsonify({'result': [dict(row) for row in nurses]})
+
+
+@app.route('/add-pharmacist')
+def add_pharmacist():
+    return render_template('pages/human-resource/add-pharmacist.html')
+
+
+@app.route("/add-pharmacist", methods=["POST"])
+def handle_add_pharmacist():
+    first_name = request.form["first-name"]
+    last_name = request.form["last-name"]
+    email = request.form["email"]
+    password = request.form["password"]
+    mobile = request.form["mobile"]
+    image = request.form["image"]
+    address = request.form["address"]
+    sex = request.form["sex"]
+    status = request.form["status"]
+
+    insert_query = f"""
+    INSERT INTO pharmacists(first_name, last_name, email, password, mobile, image, address, sex, status)
+    VALUES ('{first_name}', '{last_name}', '{email}', '{password}', '{mobile}', '{image}', '{address}', '{sex}','{status}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("pharmacist_list"))
 
 
 @app.route('/pharmacist-list')
@@ -213,9 +302,17 @@ def pharmacist_list():
     return render_template('pages/human-resource/pharmacist-list.html')
 
 
-@app.route('/representative-list')
-def representative_list():
-    return render_template('pages/human-resource/representative-list.html')
+@app.route("/api/pharmacists")
+def pharmacists_api():
+    select_query = f"""
+                    SELECT image, first_name, email, address, mobile
+                    FROM pharmacists
+                    """
+
+    with engine.connect() as connection:
+        pharmacists = connection.execute(select_query).fetchall()
+
+    return jsonify({'result': [dict(row) for row in pharmacists]})
 
 
 @app.route('/add-bed')

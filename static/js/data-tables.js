@@ -11,6 +11,20 @@ async function funBeds() {
 }
 
 
+async function funEmployees() {
+    return fetch('/api/employees').then(res => res.json());
+}
+
+
+async function funNurses() {
+    return fetch('/api/nurses').then(res => res.json());
+}
+
+async function funPharmacists() {
+    return fetch('/api/pharmacists').then(res => res.json());
+}
+
+
 (async function ($) {
     'use strict';
 
@@ -53,10 +67,10 @@ async function funBeds() {
         ["<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>  Unity", "New Haven, Columbia", "Celiac ", "22", "(634) 09 3833", "butler@example.com", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>"]
     ];
 
-    const patients_data = await funPatients();
+    const patientsData = await funPatients();
 
-    for (let i = 0; i < patients_data.result.length; i++) {
-        dataSet.push([`<img src=${patients_data.result[i].image} style='width:50px; height:30px;'> ` + patients_data.result[i].first_name, patients_data.result[i].address, patients_data.result[i].disease, patients_data.result[i].age, patients_data.result[i].mobile, patients_data.result[i].email, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    for (let i = 0; i < patientsData.result.length; i++) {
+        dataSet.push([`<img src=${patientsData.result[i].image} style='width:50px; height:30px;'> ` + patientsData.result[i].first_name, patientsData.result[i].address, patientsData.result[i].disease, patientsData.result[i].age, patientsData.result[i].mobile, patientsData.result[i].email, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='a'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
     }
 
     var dataSet1 = [
@@ -77,12 +91,12 @@ async function funBeds() {
 
     ];
 
-    let count = 14;
-    const departments_data = await funDepartments();
+    let departmentsCount = 14;
+    const departmentsData = await funDepartments();
 
-    for (let i = 0; i < departments_data.result.length; i++) {
-        count++;
-        dataSet1.push([count, departments_data.result[i].doctor_name, departments_data.result[i].department_name, departments_data.result[i].department_head, `<span class='badge badge-outline-success'>${departments_data.result[i].status}</span>`, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    for (let i = 0; i < departmentsData.result.length; i++) {
+        departmentsCount++;
+        dataSet1.push([departmentsCount, departmentsData.result[i].doctor_name, departmentsData.result[i].department_name, departmentsData.result[i].department_head, `<span class='badge badge-outline-success'>${departmentsData.result[i].status}</span>`, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
     }
 
 
@@ -163,12 +177,12 @@ async function funBeds() {
 
     ];
 
-    const beds_data = await funBeds();
-    let count_beds = 14;
+    const bedsData = await funBeds();
+    let countBeds = 14;
 
-    for (let i = 0; i < beds_data.result.length; i++) {
-        count_beds++;
-        dataSet5.push([count, beds_data.result[i].first_name, beds_data.result[i].bed_type, beds_data.result[i].description, beds_data.result[i].bed_capacity, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    for (let i = 0; i < bedsData.result.length; i++) {
+        countBeds++;
+        dataSet5.push([countBeds, bedsData.result[i].first_name, bedsData.result[i].bed_type, bedsData.result[i].description, bedsData.result[i].bed_capacity, "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a> <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
     }
 
 
@@ -207,6 +221,15 @@ async function funBeds() {
         ["14", "<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>", "Gavin", "gavin@gmail.com", "Atlanta", "	(836) 257 1131", "5 Nov 2010", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
     ];
 
+
+    let employeesCount = 14;
+    const employeesData = await funEmployees();
+
+    for (let i = 0; i < employeesData.result.length; i++) {
+        employeesCount++;
+        dataSet7.push([employeesCount, `<img src=${employeesData.result[i].image} style='width:50px; height:30px;'>`, employeesData.result[i].first_name, employeesData.result[i].email, employeesData.result[i].address, employeesData.result[i].mobile, "25 Jun 2022", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    }
+
     var dataSet8 = [
         ["1", "<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>", "Bella", "bella176@gmail.com", "New York", "	(836) 257 1340", "10 Nov 2012", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
         ["2", "<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>", "Jennifer", "jennifer@gmail.com", "Los Angeles", "	(836) 257 1379", "16 Nov 2014", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
@@ -223,6 +246,14 @@ async function funBeds() {
         ["13", "<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>", "Suzanne", "suzanne@gmail.com", "New York", "	(836) 257 1325", "15 Nov 2017", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
         ["14", "<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>", "Bella", "bella@gmail.com", "Atlanta", "	(836) 257 1131", "5 Nov 2010", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
     ];
+
+    let nursesCount = 14;
+    const nursesData = await funNurses();
+
+    for (let i = 0; i < nursesData.result.length; i++) {
+        nursesCount++;
+        dataSet8.push([nursesCount, `<img src=${nursesData.result[i].image} style='width:50px; height:30px;'>`, nursesData.result[i].first_name, nursesData.result[i].email, nursesData.result[i].address, nursesData.result[i].mobile, "25 Jun 2022", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    }
 
     var dataSet9 = [
         ["1", "<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>", "Denise", "denise176@gmail.com", "New York", "	(836) 257 1340", "10 Nov 2012", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
@@ -241,6 +272,13 @@ async function funBeds() {
         ["14", "<img src='https://via.placeholder.com/216x62' style='width:50px; height:30px;'>", "Gavin", "gavin@gmail.com", "Atlanta", "	(836) 257 1131", "5 Nov 2010", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"],
     ];
 
+    let pharmacistsCount = 14;
+    const pharmacistsData = await funPharmacists();
+
+    for (let i = 0; i < pharmacistsData.result.length; i++) {
+        pharmacistsCount++;
+        dataSet9.push([pharmacistsCount, `<img src=${pharmacistsData.result[i].image} style='width:50px; height:30px;'>`, pharmacistsData.result[i].first_name, pharmacistsData.result[i].email, pharmacistsData.result[i].address, pharmacistsData.result[i].mobile, "25 Jun 2022", "<a href='#'><i class='fas fa-pencil-alt ms-text-primary'></i></a>   <a href='#'><i class='far fa-trash-alt ms-text-danger'></i></a>"])
+    }
 
     var tableOne = $('#data-table-1').DataTable({
         data: dataSet,
