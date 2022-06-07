@@ -92,8 +92,8 @@
     <div class="logo-sn ms-d-block-lg">
         <a class="pl-0 ml-0 text-center" href="index.html"> <img class="heka-logo" src="/static/img/heka-logo.png" alt="logo">
         </a>
-        <a href="#" class="text-center ms-logo-img-link"> <img src="/static/img/faces/elena.jpeg" alt="logo"></a>
-        <h5 class="text-center text-white mt-2">Dr. Borisova</h5>
+        <a href="#" class="text-center ms-logo-img-link"> <img src="{{ user.image }}" alt="logo"></a>
+        <h5 class="text-center text-white mt-2">Dr. {{ user.last_name }}</h5>
         <h6 class="text-center text-white mb-3">Admin</h6>
 
     </div>
