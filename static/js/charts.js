@@ -9,11 +9,11 @@
         labels: ["1900", "1950", "1999", "2050"],
         datasets: [
           {
-            label: "ICU",
+            label: "ICU (Intensive Care Unit)",
             backgroundColor: "#009efb",
             data: [133,221,783,2478]
           }, {
-            label: "OPD",
+            label: "OPD (Outpatient Department)",
             backgroundColor: "#8e5ea2",
             data: [408,547,675,734]
           }
