@@ -86,7 +86,8 @@
 <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-        <a class="pl-0 ml-0 text-center" href="index.html"> <img class="heka-logo" src="/static/img/heka-logo.png" alt="logo">
+        <a class="pl-0 ml-0 text-center" href="index.html"> <img class="heka-logo" src="/static/img/heka-logo.png"
+                                                                 alt="logo">
         </a>
         <a href="#" class="text-center ms-logo-img-link"> <img src="{{ user.image }}" alt="logo"></a>
         <h5 class="text-center text-white mt-2">Dr. {{ user.last_name }}</h5>
@@ -127,6 +128,7 @@
             <ul id="patient" class="collapse" aria-labelledby="patient" data-parent="#side-nav-accordion">
                 <li><a href="/add-patient">Add Patient</a></li>
                 <li><a href="/patient-list">Patient List</a></li>
+                <li><a href="/patient-care-data">Patient Care Data</a></li>
             </ul>
         </li>
         <!-- /Patient -->
@@ -142,18 +144,18 @@
             </ul>
         </li>
         <!-- /Department -->
-{#        <!-- Schedule -->#}
-{#        <li class="menu-item">#}
-{#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#schedule" aria-expanded="false"#}
-{#               aria-controls="schedule">#}
-{#                <span><i class="fas fa-list-alt"></i>Doctor Schedule</span>#}
-{#            </a>#}
-{#            <ul id="schedule" class="collapse" aria-labelledby="schedule" data-parent="#side-nav-accordion">#}
-{#                <li><a href="/add-schedule">Add Schedule</a></li>#}
-{#                <li><a href="/schedule-list">Schedule List</a></li>#}
-{#            </ul>#}
-{#        </li>#}
-{#        <!-- /Schedule -->#}
+        {#        <!-- Schedule -->#}
+        {#        <li class="menu-item">#}
+        {#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#schedule" aria-expanded="false"#}
+        {#               aria-controls="schedule">#}
+        {#                <span><i class="fas fa-list-alt"></i>Doctor Schedule</span>#}
+        {#            </a>#}
+        {#            <ul id="schedule" class="collapse" aria-labelledby="schedule" data-parent="#side-nav-accordion">#}
+        {#                <li><a href="/add-schedule">Add Schedule</a></li>#}
+        {#                <li><a href="/schedule-list">Schedule List</a></li>#}
+        {#            </ul>#}
+        {#        </li>#}
+        {#        <!-- /Schedule -->#}
         {#        <!-- Appointment -->#}
         {#        <li class="menu-item">#}
         {#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#appointment" aria-expanded="false"#}
@@ -166,19 +168,19 @@
         {#            </ul>#}
         {#        </li>#}
         {#        <!-- /Appointment -->#}
-{#        <!-- Payment -->#}
-{#        <li class="menu-item">#}
-{#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#payment" aria-expanded="false"#}
-{#               aria-controls="payment">#}
-{#                <span><i class="fas fa-credit-card"></i>Payment</span>#}
-{#            </a>#}
-{#            <ul id="payment" class="collapse" aria-labelledby="payment" data-parent="#side-nav-accordion">#}
-{#                <li><a href="/add-payment">Add Payment</a></li>#}
-{#                <li><a href="/payment-list">Payment List</a></li>#}
-{#                <li><a href="/payment-invoice">Payment Invoice</a></li>#}
-{#            </ul>#}
-{#        </li>#}
-{#        <!-- /Payment -->#}
+        {#        <!-- Payment -->#}
+        {#        <li class="menu-item">#}
+        {#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#payment" aria-expanded="false"#}
+        {#               aria-controls="payment">#}
+        {#                <span><i class="fas fa-credit-card"></i>Payment</span>#}
+        {#            </a>#}
+        {#            <ul id="payment" class="collapse" aria-labelledby="payment" data-parent="#side-nav-accordion">#}
+        {#                <li><a href="/add-payment">Add Payment</a></li>#}
+        {#                <li><a href="/payment-list">Payment List</a></li>#}
+        {#                <li><a href="/payment-invoice">Payment Invoice</a></li>#}
+        {#            </ul>#}
+        {#        </li>#}
+        {#        <!-- /Payment -->#}
         <!-- Report -->
         <li class="menu-item">
             <a href="#" class="has-chevron" data-toggle="collapse" data-target="#report" aria-expanded="false"
@@ -220,18 +222,18 @@
             </ul>
         </li>
         <!-- /Bed-->
-{#        <!-- Notice -->#}
-{#        <li class="menu-item">#}
-{#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#notice" aria-expanded="false"#}
-{#               aria-controls="notice">#}
-{#                <span><i class="far fa-file-alt"></i>Notice</span>#}
-{#            </a>#}
-{#            <ul id="notice" class="collapse" aria-labelledby="notice" data-parent="#side-nav-accordion">#}
-{#                <li><a href="/add-notice">Add Notice</a></li>#}
-{#                <li><a href="/notice-list">Notice List</a></li>#}
-{#            </ul>#}
-{#        </li>#}
-{#        <!-- /Notice -->#}
+        {#        <!-- Notice -->#}
+        {#        <li class="menu-item">#}
+        {#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#notice" aria-expanded="false"#}
+        {#               aria-controls="notice">#}
+        {#                <span><i class="far fa-file-alt"></i>Notice</span>#}
+        {#            </a>#}
+        {#            <ul id="notice" class="collapse" aria-labelledby="notice" data-parent="#side-nav-accordion">#}
+        {#                <li><a href="/add-notice">Add Notice</a></li>#}
+        {#                <li><a href="/notice-list">Notice List</a></li>#}
+        {#            </ul>#}
+        {#        </li>#}
+        {#        <!-- /Notice -->#}
         {#        <li class="menu-item">#}
         {#            <a href="pages/widgets.html">#}
         {#                <span><i class="material-icons fs-16">widgets</i>Widgets</span>#}
@@ -642,7 +644,7 @@
                 </ul>
             </li>
 
-                        <li class="ms-nav-item ms-nav-user dropdown">
+            <li class="ms-nav-item ms-nav-user dropdown">
                 <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img
                         class="ms-user-img ms-img-round float-right" src="{{ user.image }}"
                         alt="people"> </a>
@@ -653,13 +655,13 @@
                     </li>
                     <li class="dropdown-divider"></li>
                     <li class="ms-dropdown-list">
-{#                        <a class="media fs-14 p-2" href="/profile"> <span><i#}
-{#                                class="flaticon-user mr-2"></i> Profile</span> </a>#}
+                        {#                        <a class="media fs-14 p-2" href="/profile"> <span><i#}
+                        {#                                class="flaticon-user mr-2"></i> Profile</span> </a>#}
                         <a class="media fs-14 p-2" href="/inbox"> <span><i
                                 class="flaticon-mail mr-2"></i> Inbox</span> <span
                                 class="badge badge-pill badge-info">3</span> </a>
-{#                        <a class="media fs-14 p-2" href="/profile"> <span><i#}
-{#                                class="flaticon-gear mr-2"></i> Account Settings</span> </a>#}
+                        {#                        <a class="media fs-14 p-2" href="/profile"> <span><i#}
+                        {#                                class="flaticon-gear mr-2"></i> Account Settings</span> </a>#}
                     </li>
                     <li class="dropdown-divider"></li>
                     <li class="dropdown-menu-footer">
@@ -813,98 +815,101 @@
                                     </div>
                                 </div>
 
-                                    <div class="col-md-6 mb-3">
-                                        <label>Disease</label>
-                                        <div class="input-group">
-                                            <input name="disease" type="text" class="form-control"
-                                                   id="validationCustom180"
-                                                   placeholder="Enter Disease" required>
+                                <div class="col-md-6 mb-3">
+                                    <label>Disease</label>
+                                    <div class="input-group">
+                                        <input name="disease" type="text" class="form-control"
+                                               id="validationCustom180"
+                                               placeholder="Enter Disease" required>
 
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label>Patient Image</label>
+                                    <div class="input-group">
+                                        <input name="image" type="text" class="form-control"
+                                               id="validatedCustomFile" placeholder="Image URL" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label>Date of Birth</label>
+                                    <div class="input-group">
+                                        <input name="date-of-birth" type="text" class="form-control"
+                                               id="validationCustom190"
+                                               placeholder="Date of Birth" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-6 mb-2">
+                                    <label>Add Address</label>
+                                    <div class="input-group">
+                                        <textarea name="address" class="form-control" id="exampleTextarea"
+                                                  rows="3"></textarea>
+
                                     </div>
                                 </div>
 
 
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
-                                            <label>Patient Image</label>
-                                            <div class="input-group">
-                                                <input name="image" type="text" class="form-control"
-                                                       id="validatedCustomFile" placeholder="Image URL" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label>Date of Birth</label>
-                                            <div class="input-group">
-                                                <input name="date-of-birth" type="text" class="form-control" id="validationCustom190"
-                                                       placeholder="Date of Birth" required>
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-2">
-                                            <label>Add Address</label>
-                                            <div class="input-group">
-                                                <textarea name="address" class="form-control" id="exampleTextarea" rows="3"></textarea>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6 mb-2">
-                                            <label>Patient History</label>
-                                            <div class="input-group">
+                                <div class="col-md-6 mb-2">
+                                    <label>Patient History</label>
+                                    <div class="input-group">
                                                 <textarea name="history" class="form-control" id="exampleTextarea1"
                                                           rows="3"></textarea>
 
-                                            </div>
-                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="col-md-6 mb-2">
+                                    <label>Prefer to</label>
+                                    <div class="input-group">
+                                        <input name="prefer-to" type="text" class="form-control"
+                                               id="validationCustom200"
+                                               placeholder=""
+                                               required>
 
                                     </div>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label>Sex</label>
+                                    <ul class="ms-list d-flex">
+                                        <li class="ms-list-item pl-0">
+                                            <label class="ms-checkbox-wrap">
+                                                <input name="sex" type="radio" value="Male">
+                                                <i class="ms-checkbox-check"></i>
+                                            </label>
+                                            <span> Male </span>
+                                        </li>
+                                        <li class="ms-list-item">
+                                            <label class="ms-checkbox-wrap">
+                                                <input type="radio" name="sex" value="Female" checked="">
+                                                <i class="ms-checkbox-check"></i>
+                                            </label>
+                                            <span> Female </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
 
-                                    <div class="form-row">
-
-                                        <div class="col-md-6 mb-2">
-                                            <label>Prefer to</label>
-                                            <div class="input-group">
-                                                <input name="prefer-to" type="text" class="form-control" id="validationCustom200"
-                                                       placeholder=""
-                                                       required>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <label>Sex</label>
-                                            <ul class="ms-list d-flex">
-                                                <li class="ms-list-item pl-0">
-                                                    <label class="ms-checkbox-wrap">
-                                                        <input name="sex" type="radio" value="Male">
-                                                        <i class="ms-checkbox-check"></i>
-                                                    </label>
-                                                    <span> Male </span>
-                                                </li>
-                                                <li class="ms-list-item">
-                                                    <label class="ms-checkbox-wrap">
-                                                        <input type="radio" name="sex" value="Female" checked="">
-                                                        <i class="ms-checkbox-check"></i>
-                                                    </label>
-                                                    <span> Female </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-
-                                    <button class="btn btn-warning mt-4 d-inline w-20" type="reset">Reset</button>
-                                    <button class="btn btn-primary mt-4 d-inline w-20" type="submit">Create Profile
-                                    </button>
+                            <button class="btn btn-warning mt-4 d-inline w-20" type="reset">Reset</button>
+                            <button class="btn btn-primary mt-4 d-inline w-20" type="submit">Create Profile
+                            </button>
                         </form>
 
                     </div>

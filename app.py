@@ -129,12 +129,30 @@ def patient_list():
     return render_template('pages/patient/patient-list.html', user=get_auth_user())
 
 
+@app.route('/patient-care-data')
+def patient_care_data():
+    return render_template('pages/patient/patient-care-data.html', user=get_auth_user())
+
+
 @app.route("/api/patients")
 def patients_api():
     select_query = f"""
                     SELECT first_name, address, mobile, email, age, disease, image
                     FROM patients
                     """
+
+    with engine.connect() as connection:
+        patients = connection.execute(select_query).fetchall()
+
+    return jsonify({'result': [dict(row) for row in patients]})
+
+
+@app.route("/api/patients-care-data")
+def patients_care_data_api():
+    select_query = f"""
+                    SELECT first_name, last_name, room, bed, diagnosis, risk_factors
+                    FROM patients_diagnosis
+                """
 
     with engine.connect() as connection:
         patients = connection.execute(select_query).fetchall()
@@ -391,7 +409,7 @@ def login():
     return render_template("pages/prebuilt-pages/default-login.html")
 
 
-@app.route("/login",  methods=["POST"])
+@app.route("/login", methods=["POST"])
 def handle_login():
     email = request.form['email']
     password = request.form['password']
