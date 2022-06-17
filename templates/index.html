@@ -172,19 +172,19 @@
         {#            </ul>#}
         {#        </li>#}
         {#        <!-- /Payment -->#}
-        <!-- Report -->
-        <li class="menu-item">
-            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#report" aria-expanded="false"
-               aria-controls="report">
-                <span><i class="fas fa-file-alt"></i>Report</span>
-            </a>
-            <ul id="report" class="collapse" aria-labelledby="report" data-parent="#side-nav-accordion">
-                <li><a href="/patient-report">Patient Wise Report</a></li>
-                <li><a href="/doctor-report">Doctor Wise Report</a></li>
-                <li><a href="/total-report">Total Report</a></li>
-            </ul>
-        </li>
-        <!-- /Report -->
+{#        <!-- Report -->#}
+{#        <li class="menu-item">#}
+{#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#report" aria-expanded="false"#}
+{#               aria-controls="report">#}
+{#                <span><i class="fas fa-file-alt"></i>Report</span>#}
+{#            </a>#}
+{#            <ul id="report" class="collapse" aria-labelledby="report" data-parent="#side-nav-accordion">#}
+{#                <li><a href="/patient-report">Patient Wise Report</a></li>#}
+{#                <li><a href="/doctor-report">Doctor Wise Report</a></li>#}
+{#                <li><a href="/total-report">Total Report</a></li>#}
+{#            </ul>#}
+{#        </li>#}
+{#        <!-- /Report -->#}
         <!-- Human Resource -->
         <li class="menu-item">
             <a href="#" class="has-chevron" data-toggle="collapse" data-target="#human-resource" aria-expanded="false"
@@ -560,8 +560,8 @@
             <span class="ms-toggler-bar bg-white"></span>
         </div>
         <div class="logo-sn logo-sm ms-d-block-sm">
-{#            <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="#"><img#}
-{#                    src="https://via.placeholder.com/84x41" alt="logo"> </a>#}
+            {#            <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="#"><img#}
+            {#                    src="https://via.placeholder.com/84x41" alt="logo"> </a>#}
         </div>
         <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
 
@@ -990,6 +990,28 @@
                 </div>
             </div>
 
+            <div class="col-xl-6 col-md-12">
+                <div class="ms-panel">
+                    <div class="ms-panel-header">
+                        <h6>Diagnosis Analysis</h6>
+                    </div>
+                    <div class="ms-panel-body">
+                        <canvas id="bar-chart-grouped-diagnosis"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-md-12">
+                <div class="ms-panel">
+                    <div class="ms-panel-header">
+                        <h6>Common Risk Factors</h6>
+                    </div>
+                    <div class="ms-panel-body">
+                        <canvas id="bar-chart-grouped-risk"></canvas>
+                    </div>
+                </div>
+            </div>
+
 
             {#                    <div class="col-xl-8 col-md-12">#}
             {#                        #}
@@ -999,228 +1021,228 @@
             {#                    </div>#}
             <!-- Bitcoin rating graph -->
             <div class="col-xl-6 col-md-12">
-                        <div class="ms-panel ms-panel-fh ms-facebook-engagements">
-                            <div class="ms-panel-header">
-                                <h6>Doctor Engagements</h6>
-                            </div>
-                            <div class="ms-panel-body p-0">
-                                <div class="ms-facebook-page-selection">
-                                    <p class="ms-text-dark">Jan 25, 2020 to Feb 02, 2020</p>
-                                    <p>Jan 18, 2020 to Feb 24, 2020 (Prev)</p>
+                <div class="ms-panel ms-panel-fh ms-facebook-engagements">
+                    <div class="ms-panel-header">
+                        <h6>HOSPITAL ANALYTICS GROWTH</h6>
+                    </div>
+                    <div class="ms-panel-body p-0">
+                        <div class="ms-facebook-page-selection">
+{#                            <p class="ms-text-dark">Jan 25, 2020 to Feb 02, 2020</p>#}
+{#                            <p>Jan 18, 2020 to Feb 24, 2020 (Prev)</p>#}
 
-                                    <div class="dropdown">
-                                        <a href="#" class="has-chevron" data-toggle="dropdown" aria-haspopup="true"
-                                           aria-expanded="false">Doctor Name here</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="ms-dropdown-list">
-                                                <a class="media p-2" href="#">
-                                                    <div class="media-body">
-                                                        <span>Doctor 1</span>
-                                                    </div>
-                                                </a>
-                                                <a class="media p-2" href="#">
-                                                    <div class="media-body">
-                                                        <span>Doctor 2</span>
-                                                    </div>
-                                                </a>
-                                                <a class="media p-2" href="#">
-                                                    <div class="media-body">
-                                                        <span>Doctor 3</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <ul class="ms-list clearfix">
-                                    <li class="ms-list-item">
-                                        <div class="d-flex justify-content-between align-items-end">
-                                            <div class="ms-graph-meta">
-                                                <h2>Weekday Engagement</h2>
-                                                <p class="ms-text-dark">45.07%</p>
-                                                <p class="ms-text-success">+28.44%</p>
-                                                <p>VS 66.68% (Prev)</p>
-                                            </div>
-                                            <div class="ms-graph-canvas">
-                                                <canvas id="engaged-users"></canvas>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="ms-list-item">
-                                        <div class="d-flex justify-content-between align-items-end">
-                                            <div class="ms-graph-meta">
-                                                <h2>Weekend Engagement</h2>
-                                                <p class="ms-text-dark">45.07%</p>
-                                                <p class="ms-text-success">+28.44%</p>
-                                                <p>VS 66.68% (Prev)</p>
-                                            </div>
-                                            <div class="ms-graph-canvas">
-                                                <canvas id="page-impressions"></canvas>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="ms-panel ms-panel-fh">
-                            <div class="ms-panel-header">
-                                <h6>Patient Timeline</h6>
-                            </div>
-                            <div class="ms-panel-body">
-                                <ul class="ms-activity-log">
-                                    <li>
-                                        <div class="ms-btn-icon btn-pill icon btn-info">
-                                            <i class="fa fa-wheelchair"></i>
-                                        </div>
-                                        <h6>Patient Admission</h6>
-                                        <span> <i class="material-icons">event</i>1 January, 2020</span>
-                                        <p class="fs-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Quisque
-                                            scelerisque diam non nisi semper, ula in sodales vehicula....</p>
-                                    </li>
-                                    <li>
-                                        <div class="ms-btn-icon btn-pill icon btn-primary">
-                                            <i class="fa fa-user-md"></i>
-                                        </div>
-                                        <h6>Treatment Starts</h6>
-                                        <span> <i class="material-icons">event</i>5 January, 2020</span>
-                                        <p class="fs-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Quisque
-                                            scelerisque diam non nisi semper, ula in sodales vehicula....</p>
-                                    </li>
-                                    <li>
-                                        <div class="ms-btn-icon btn-pill icon btn-success">
-                                            <i class="fa fa-check"></i>
-                                        </div>
-                                        <h6>Patient Discharge</h6>
-                                        <span> <i class="material-icons">event</i>15 March, 2020</span>
-                                        <p class="fs-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Quisque
-                                            scelerisque diam non nisi semper, ula in sodales vehicula....</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-{#                    <div class="col-xl-8 col-md-12">#}
-{#                        <div class="ms-panel">#}
-{#                            <div class="ms-panel-header">#}
-{#                                <h6>New Patients</h6>#}
-{#                            </div>#}
-{#                            <div class="ms-panel-body">#}
-{#                                <div class="table-responsive">#}
-{#                                    <table class="table table-hover thead-primary">#}
-{#                                        <thead>#}
-{#                                        <tr>#}
-{#                                            <th scope="col">Patient</th>#}
-{#                                            <th scope="col">E-mail Id</th>#}
-{#                                            <th scope="col">M.No</th>#}
-{#                                            <th scope="col">Disease</th>#}
-{#                                        </tr>#}
-{#                                        </thead>#}
-{#                                        <tbody>#}
-{#                                        <tr>#}
-{#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
-{#                                                                          alt="people"> Richard#}
-{#                                            </td>#}
-{#                                            <td>Richard288@gmail.com</td>#}
-{#                                            <td>+1-202-555-0875</td>#}
-{#                                            <td>Fever</td>#}
-{#                                        </tr>#}
-{#                                        <tr>#}
-{#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
-{#                                                                          alt="people"> William#}
-{#                                            </td>#}
-{#                                            <td>William434@gmail.com</td>#}
-{#                                            <td>+1-202-534-0112</td>#}
-{#                                            <td>Eye</td>#}
-{#                                        </tr>#}
-{#                                        <tr>#}
-{#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
-{#                                                                          alt="people"> John Doe#}
-{#                                            </td>#}
-{#                                            <td>johndeo652@gmail.com</td>#}
-{#                                            <td>+1-202-182-0132</td>#}
-{#                                            <td>Typhoid</td>#}
-{#                                        </tr>#}
-{#                                        <tr>#}
-{#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
-{#                                                                          alt="people"> Martin#}
-{#                                            </td>#}
-{#                                            <td>Martin876@gmail.com</td>#}
-{#                                            <td>+1-202-998-2341</td>#}
-{#                                            <td>Cancer</td>#}
-{#                                        </tr>#}
-{#                                        <tr>#}
-{#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
-{#                                                                          alt="people"> Robert#}
-{#                                            </td>#}
-{#                                            <td>Robert082@gmail.com</td>#}
-{#                                            <td>+1-202-455-1431</td>#}
-{#                                            <td>Diabetes</td>#}
-{#                                        </tr>#}
-{#                                        </tbody>#}
-{#                                    </table>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <div class="col-xl-4 col-md-12">#}
-{#                        <div class="ms-panel ms-panel-fh ms-widget">#}
-{#                            <div class="ms-panel-header ms-panel-custome">#}
-{#                                <h6>Latest Reports</h6>#}
-{#                            </div>#}
-{#                            <div class="ms-panel-body p-0">#}
-{#                                <ul class="ms-followers ms-list ms-scrollable">#}
-{#                                    <li class="ms-list-item media">#}
-{##}
-{#                                        <div class="media-body mt-1">#}
-{#                                            <h4>Ultrasound-2.pdf</h4>#}
-{#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
-{#                                        </div>#}
-{#                                        <button type="button" class="btn btn-success btn-sm" name="button">Download#}
-{#                                        </button>#}
-{#                                    </li>#}
-{#                                    <li class="ms-list-item media">#}
-{##}
-{#                                        <div class="media-body mt-1">#}
-{#                                            <h4>Hypothermia.pdf</h4>#}
-{#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
-{#                                        </div>#}
-{#                                        <button type="button" class="btn btn-danger btn-sm" name="button">On Hold#}
-{#                                        </button>#}
-{#                                    </li>#}
-{#                                    <li class="ms-list-item media">#}
-{##}
-{#                                        <div class="media-body mt-1">#}
-{#                                            <h4>Ultrasound.pdf</h4>#}
-{#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
-{#                                        </div>#}
-{#                                        <button type="button" class="btn btn-success btn-sm" name="button">Download#}
-{#                                        </button>#}
-{#                                    </li>#}
-{#                                    <li class="ms-list-item media">#}
-{##}
-{#                                        <div class="media-body mt-1">#}
-{#                                            <h4>Heart-ECG.pdf</h4>#}
-{#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
-{#                                        </div>#}
-{#                                        <button type="button" class="btn btn-success btn-sm" name="button">Download#}
-{#                                        </button>#}
-{#                                    </li>#}
-{#                                    <li class="ms-list-item media">#}
-{##}
-{#                                        <div class="media-body mt-1">#}
-{#                                            <h4>X-ray.pdf</h4>#}
-{#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
-{#                                        </div>#}
-{#                                        <button type="button" class="btn btn-danger btn-sm" name="button">On Hold#}
-{#                                        </button>#}
+{#                            <div class="dropdown">#}
+{#                                <a href="#" class="has-chevron" data-toggle="dropdown" aria-haspopup="true"#}
+{#                                   aria-expanded="false">Doctor Name here</a>#}
+{#                                <ul class="dropdown-menu">#}
+{#                                    <li class="ms-dropdown-list">#}
+{#                                        <a class="media p-2" href="#">#}
+{#                                            <div class="media-body">#}
+{#                                                <span>Doctor 1</span>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                        <a class="media p-2" href="#">#}
+{#                                            <div class="media-body">#}
+{#                                                <span>Doctor 2</span>#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                        <a class="media p-2" href="#">#}
+{#                                            <div class="media-body">#}
+{#                                                <span>Doctor 3</span>#}
+{#                                            </div>#}
+{#                                        </a>#}
 {#                                    </li>#}
 {#                                </ul>#}
 {#                            </div>#}
+                        </div>
+                        <ul class="ms-list clearfix">
+                            <li class="ms-list-item">
+                                <div class="d-flex justify-content-between align-items-end">
+                                    <div class="ms-graph-meta">
+                                        <h2>Nurses (Avg)</h2>
+                                        <p class="ms-text-dark">45.07%</p>
+                                        <p class="ms-text-success">+28.44%</p>
+                                        <p>VS 66.68% (Prev)</p>
+                                    </div>
+                                    <div class="ms-graph-canvas">
+                                        <canvas id="engaged-users"></canvas>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="ms-list-item">
+                                <div class="d-flex justify-content-between align-items-end">
+                                    <div class="ms-graph-meta">
+                                        <h2>Patient Facilities (Avg)</h2>
+                                        <p class="ms-text-dark">45.07%</p>
+                                        <p class="ms-text-success">+28.44%</p>
+                                        <p>VS 66.68% (Prev)</p>
+                                    </div>
+                                    <div class="ms-graph-canvas">
+                                        <canvas id="page-impressions"></canvas>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="ms-panel ms-panel-fh">
+                    <div class="ms-panel-header">
+                        <h6>Patient Timeline</h6>
+                    </div>
+                    <div class="ms-panel-body">
+                        <ul class="ms-activity-log">
+                            <li>
+                                <div class="ms-btn-icon btn-pill icon btn-info">
+                                    <i class="fa fa-wheelchair"></i>
+                                </div>
+                                <h6>Patient Admission</h6>
+                                <span> <i class="material-icons">event</i>1 January, 2020</span>
+                                <p class="fs-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Quisque
+                                    scelerisque diam non nisi semper, ula in sodales vehicula....</p>
+                            </li>
+                            <li>
+                                <div class="ms-btn-icon btn-pill icon btn-primary">
+                                    <i class="fa fa-user-md"></i>
+                                </div>
+                                <h6>Treatment Starts</h6>
+                                <span> <i class="material-icons">event</i>5 January, 2020</span>
+                                <p class="fs-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Quisque
+                                    scelerisque diam non nisi semper, ula in sodales vehicula....</p>
+                            </li>
+                            <li>
+                                <div class="ms-btn-icon btn-pill icon btn-success">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <h6>Patient Discharge</h6>
+                                <span> <i class="material-icons">event</i>15 March, 2020</span>
+                                <p class="fs-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Quisque
+                                    scelerisque diam non nisi semper, ula in sodales vehicula....</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {#                    <div class="col-xl-8 col-md-12">#}
+            {#                        <div class="ms-panel">#}
+            {#                            <div class="ms-panel-header">#}
+            {#                                <h6>New Patients</h6>#}
+            {#                            </div>#}
+            {#                            <div class="ms-panel-body">#}
+            {#                                <div class="table-responsive">#}
+            {#                                    <table class="table table-hover thead-primary">#}
+            {#                                        <thead>#}
+            {#                                        <tr>#}
+            {#                                            <th scope="col">Patient</th>#}
+            {#                                            <th scope="col">E-mail Id</th>#}
+            {#                                            <th scope="col">M.No</th>#}
+            {#                                            <th scope="col">Disease</th>#}
+            {#                                        </tr>#}
+            {#                                        </thead>#}
+            {#                                        <tbody>#}
+            {#                                        <tr>#}
+            {#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
+            {#                                                                          alt="people"> Richard#}
+            {#                                            </td>#}
+            {#                                            <td>Richard288@gmail.com</td>#}
+            {#                                            <td>+1-202-555-0875</td>#}
+            {#                                            <td>Fever</td>#}
+            {#                                        </tr>#}
+            {#                                        <tr>#}
+            {#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
+            {#                                                                          alt="people"> William#}
+            {#                                            </td>#}
+            {#                                            <td>William434@gmail.com</td>#}
+            {#                                            <td>+1-202-534-0112</td>#}
+            {#                                            <td>Eye</td>#}
+            {#                                        </tr>#}
+            {#                                        <tr>#}
+            {#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
+            {#                                                                          alt="people"> John Doe#}
+            {#                                            </td>#}
+            {#                                            <td>johndeo652@gmail.com</td>#}
+            {#                                            <td>+1-202-182-0132</td>#}
+            {#                                            <td>Typhoid</td>#}
+            {#                                        </tr>#}
+            {#                                        <tr>#}
+            {#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
+            {#                                                                          alt="people"> Martin#}
+            {#                                            </td>#}
+            {#                                            <td>Martin876@gmail.com</td>#}
+            {#                                            <td>+1-202-998-2341</td>#}
+            {#                                            <td>Cancer</td>#}
+            {#                                        </tr>#}
+            {#                                        <tr>#}
+            {#                                            <td class="ms-table-f-w"><img src="https://via.placeholder.com/270x270"#}
+            {#                                                                          alt="people"> Robert#}
+            {#                                            </td>#}
+            {#                                            <td>Robert082@gmail.com</td>#}
+            {#                                            <td>+1-202-455-1431</td>#}
+            {#                                            <td>Diabetes</td>#}
+            {#                                        </tr>#}
+            {#                                        </tbody>#}
+            {#                                    </table>#}
+            {#                                </div>#}
+            {#                            </div>#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                    <div class="col-xl-4 col-md-12">#}
+            {#                        <div class="ms-panel ms-panel-fh ms-widget">#}
+            {#                            <div class="ms-panel-header ms-panel-custome">#}
+            {#                                <h6>Latest Reports</h6>#}
+            {#                            </div>#}
+            {#                            <div class="ms-panel-body p-0">#}
+            {#                                <ul class="ms-followers ms-list ms-scrollable">#}
+            {#                                    <li class="ms-list-item media">#}
+            {##}
+            {#                                        <div class="media-body mt-1">#}
+            {#                                            <h4>Ultrasound-2.pdf</h4>#}
+            {#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
+            {#                                        </div>#}
+            {#                                        <button type="button" class="btn btn-success btn-sm" name="button">Download#}
+            {#                                        </button>#}
+            {#                                    </li>#}
+            {#                                    <li class="ms-list-item media">#}
+            {##}
+            {#                                        <div class="media-body mt-1">#}
+            {#                                            <h4>Hypothermia.pdf</h4>#}
+            {#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
+            {#                                        </div>#}
+            {#                                        <button type="button" class="btn btn-danger btn-sm" name="button">On Hold#}
+            {#                                        </button>#}
+            {#                                    </li>#}
+            {#                                    <li class="ms-list-item media">#}
+            {##}
+            {#                                        <div class="media-body mt-1">#}
+            {#                                            <h4>Ultrasound.pdf</h4>#}
+            {#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
+            {#                                        </div>#}
+            {#                                        <button type="button" class="btn btn-success btn-sm" name="button">Download#}
+            {#                                        </button>#}
+            {#                                    </li>#}
+            {#                                    <li class="ms-list-item media">#}
+            {##}
+            {#                                        <div class="media-body mt-1">#}
+            {#                                            <h4>Heart-ECG.pdf</h4>#}
+            {#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
+            {#                                        </div>#}
+            {#                                        <button type="button" class="btn btn-success btn-sm" name="button">Download#}
+            {#                                        </button>#}
+            {#                                    </li>#}
+            {#                                    <li class="ms-list-item media">#}
+            {##}
+            {#                                        <div class="media-body mt-1">#}
+            {#                                            <h4>X-ray.pdf</h4>#}
+            {#                                            <a href="#"><span class="fs-12">View Report</span></a>#}
+            {#                                        </div>#}
+            {#                                        <button type="button" class="btn btn-danger btn-sm" name="button">On Hold#}
+            {#                                        </button>#}
+            {#                                    </li>#}
+            {#                                </ul>#}
+            {#                            </div>#}
             <div class="col-xl-6 col-lg-12 col-md-12">
                 <div class="ms-panel">
                     <div class="ms-panel-header">
@@ -1241,14 +1263,12 @@
                     </div>
                 </div>
             </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
 
 
-
-
-                </div>
-            </div>
+    </div>
+    </div>
 </main>
 <!-- MODALS -->
 
@@ -1477,7 +1497,6 @@
 <script src="../static/js/framework.js"></script>
 <!-- Settings -->
 <script src="../static/js/settings.js"></script>
-
 
 
 </body>

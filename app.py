@@ -1,3 +1,4 @@
+import collections
 from datetime import timedelta
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session
@@ -158,6 +159,43 @@ def patients_care_data_api():
         patients = connection.execute(select_query).fetchall()
 
     return jsonify({'result': [dict(row) for row in patients]})
+
+
+@app.route("/api/graphs")
+def graphs_api():
+    select_query = f"""
+                    SELECT diagnosis, risk_factors
+                    FROM patients_diagnosis
+                """
+
+    with engine.connect() as connection:
+        patients = connection.execute(select_query).fetchall()
+
+        diagnosis_data = [row[0] for row in patients]
+        diagnosis = {
+            'Hip fracture': 0,
+            'Concussion': 0,
+            'Rib Fracture': 0,
+            'Arthritis': 0,
+        }
+
+        for d in diagnosis_data:
+            if d in diagnosis:
+                diagnosis[d] += 1
+
+        risk_data = [row[1] for row in patients]
+        risk = {
+            'Dementia': 0,
+            'Strong medication': 0,
+            'Self harm': 0,
+            'Low food intake': 0,
+        }
+
+        for r in risk_data:
+            if r in risk:
+                risk[r] += 1
+
+    return jsonify({'diagnosis': diagnosis, 'risk': risk})
 
 
 @app.route('/add-department')

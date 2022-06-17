@@ -6,7 +6,7 @@
     new Chart(document.getElementById("bar-chart-grouped"), {
       type: 'bar',
       data: {
-        labels: ["1900", "1950", "1999", "2050"],
+        labels: ["1900", "1950", "1999", "3000"],
         datasets: [
           {
             label: "ICU (Intensive Care Unit)",
