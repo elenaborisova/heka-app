@@ -198,52 +198,29 @@ async function funDiagnosisRisk() {
 
     console.log(diagnosisData);
 
-        //Group Bar Chart
+
+    //Group Bar Chart
     new Chart(document.getElementById("bar-chart-grouped-diagnosis"), {
         type: 'bar',
         data: {
-            labels: ["1900", "1950", "1999", "2050"],
+            labels: ["Hip fracture", "Concussion", "Rib fracture", "Arthritis"],
             datasets: [
                 {
-                    label: "ICU",
-                    backgroundColor: "#009efb",
-                    data: [133, 221, 783, 2478]
-                }, {
-                    label: "OPD",
-                    backgroundColor: "#4f8dca",
-                    data: [408, 547, 675, 734]
-                }
+                    backgroundColor: "#73C6B6",
+                    data: diagnosisData
+                },
             ]
         },
         options: {
             title: {
                 display: true,
-                text: 'Patient In'
-            }
+                text: 'Diagnosis'
+            },
+            legend: {
+                display: false,
+            },
         }
     });
-    // //Group Bar Chart
-    // new Chart(document.getElementById("bar-chart-grouped-diagnosis"), {
-    //     type: 'bar',
-    //     data: {
-    //         labels: ["Hip fracture", "Concussion", "Rib fracture", "Arthritis"],
-    //         datasets: [
-    //             {
-    //                 backgroundColor: "#73C6B6",
-    //                 data: diagnosisData
-    //             },
-    //         ]
-    //     },
-    //     options: {
-    //         title: {
-    //             display: true,
-    //             text: 'Diagnosis'
-    //         },
-    //         legend: {
-    //             display: false,
-    //         },
-    //     }
-    // });
 
     //Group Bar Chart
     new Chart(document.getElementById("bar-chart-grouped-risk"), {
