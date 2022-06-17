@@ -182,6 +182,7 @@ async function funDiagnosisRisk() {
     });
 
     const diagnosisAndRisk = await funDiagnosisRisk();
+    console.log(diagnosisAndRisk);
 
     let diagnosisData = [];
     diagnosisData.push(diagnosisAndRisk['diagnosis']['Hip fracture']);
@@ -204,7 +205,7 @@ async function funDiagnosisRisk() {
             datasets: [
                 {
                     backgroundColor: "#73C6B6",
-                    data: diagnosisData
+                    data: [1, 2, 3, 4]
                 },
             ]
         },
