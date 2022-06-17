@@ -186,7 +186,7 @@ async function funDiagnosisRisk() {
     let diagnosisData = [];
     diagnosisData.push(diagnosisAndRisk['diagnosis']['Hip fracture']);
     diagnosisData.push(diagnosisAndRisk['diagnosis']['Concussion']);
-    diagnosisData.push(diagnosisAndRisk['diagnosis']['Rib fracture']);
+    diagnosisData.push(diagnosisAndRisk['diagnosis']['Rib Fracture']);
     diagnosisData.push(diagnosisAndRisk['diagnosis']['Arthritis']);
 
     let riskData = [];
