@@ -194,7 +194,7 @@
     // all data
     var data_1 = [1800, 1600, 2300, 2800, 3600, 2900, 3000, 3800, 3600];
     var data_2 = [4100, 3800, 3200, 3400, 2700, 2600, 3300, 3000, 2900];
-    var labels = ["June-11", "june-12", "june-13", "june-14", "june-15", "june-16", "june-17", "june-18", "june-19"];
+    var labels = ["June-11", "June-12", "June-13", "June-14", "June-15", "June-16", "June-17", "June-18", "June-19"];
 
     var lineChart = new Chart(ctx, {
         type: 'line',
