@@ -22,6 +22,7 @@
     <link href="../static/css/style.css" rel="stylesheet">
     <!-- Page Specific CSS (Morris Charts.css) -->
     <link href="../static/css/morris.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/static/img/logo.png">
 </head>
@@ -172,19 +173,19 @@
         {#            </ul>#}
         {#        </li>#}
         {#        <!-- /Payment -->#}
-{#        <!-- Report -->#}
-{#        <li class="menu-item">#}
-{#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#report" aria-expanded="false"#}
-{#               aria-controls="report">#}
-{#                <span><i class="fas fa-file-alt"></i>Report</span>#}
-{#            </a>#}
-{#            <ul id="report" class="collapse" aria-labelledby="report" data-parent="#side-nav-accordion">#}
-{#                <li><a href="/patient-report">Patient Wise Report</a></li>#}
-{#                <li><a href="/doctor-report">Doctor Wise Report</a></li>#}
-{#                <li><a href="/total-report">Total Report</a></li>#}
-{#            </ul>#}
-{#        </li>#}
-{#        <!-- /Report -->#}
+        {#        <!-- Report -->#}
+        {#        <li class="menu-item">#}
+        {#            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#report" aria-expanded="false"#}
+        {#               aria-controls="report">#}
+        {#                <span><i class="fas fa-file-alt"></i>Report</span>#}
+        {#            </a>#}
+        {#            <ul id="report" class="collapse" aria-labelledby="report" data-parent="#side-nav-accordion">#}
+        {#                <li><a href="/patient-report">Patient Wise Report</a></li>#}
+        {#                <li><a href="/doctor-report">Doctor Wise Report</a></li>#}
+        {#                <li><a href="/total-report">Total Report</a></li>#}
+        {#            </ul>#}
+        {#        </li>#}
+        {#        <!-- /Report -->#}
         <!-- Human Resource -->
         <li class="menu-item">
             <a href="#" class="has-chevron" data-toggle="collapse" data-target="#human-resource" aria-expanded="false"
@@ -997,6 +998,32 @@
                     </div>
                     <div class="ms-panel-body">
                         <canvas id="bar-chart-grouped-diagnosis"></canvas>
+                        <script>
+
+                            //Group Bar Chart
+                            let barChart1 = new Chart(document.getElementById("bar-chart-grouped-diagnosis"), {
+                                type: 'bar',
+                                data: {
+                                    labels: ["Hip fracture", "Concussion", "Rib fracture", "Arthritis"],
+                                    datasets: [
+                                        {
+                                            backgroundColor: "#73C6B6",
+                                            data: {{ diagnosis | safe }}
+                                        },
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Diagnosis'
+                                    },
+                                    legend: {
+                                        display: false,
+                                    },
+                                }
+                            });
+
+                        </script>
                     </div>
                 </div>
             </div>
@@ -1008,6 +1035,33 @@
                     </div>
                     <div class="ms-panel-body">
                         <canvas id="bar-chart-grouped-risk"></canvas>
+
+                        <script>
+                            //Group Bar Chart
+                            let barChart2 = new Chart(document.getElementById("bar-chart-grouped-risk"), {
+                                type: 'bar',
+                                data: {
+                                    labels: ["Dementia", "Strong medication", "Self harm", "Low food intake"],
+                                    datasets: [
+                                        {
+                                            backgroundColor: "#ABEBC6",
+                                            data: {{ risk | safe }}
+                                        },
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Risk Factors'
+                                    },
+                                    legend: {
+                                        display: false,
+                                    },
+                                }
+                            });
+
+
+                        </script>
                     </div>
                 </div>
             </div>
@@ -1027,32 +1081,32 @@
                     </div>
                     <div class="ms-panel-body p-0">
                         <div class="ms-facebook-page-selection">
-{#                            <p class="ms-text-dark">Jan 25, 2020 to Feb 02, 2020</p>#}
-{#                            <p>Jan 18, 2020 to Feb 24, 2020 (Prev)</p>#}
+                            {#                            <p class="ms-text-dark">Jan 25, 2020 to Feb 02, 2020</p>#}
+                            {#                            <p>Jan 18, 2020 to Feb 24, 2020 (Prev)</p>#}
 
-{#                            <div class="dropdown">#}
-{#                                <a href="#" class="has-chevron" data-toggle="dropdown" aria-haspopup="true"#}
-{#                                   aria-expanded="false">Doctor Name here</a>#}
-{#                                <ul class="dropdown-menu">#}
-{#                                    <li class="ms-dropdown-list">#}
-{#                                        <a class="media p-2" href="#">#}
-{#                                            <div class="media-body">#}
-{#                                                <span>Doctor 1</span>#}
-{#                                            </div>#}
-{#                                        </a>#}
-{#                                        <a class="media p-2" href="#">#}
-{#                                            <div class="media-body">#}
-{#                                                <span>Doctor 2</span>#}
-{#                                            </div>#}
-{#                                        </a>#}
-{#                                        <a class="media p-2" href="#">#}
-{#                                            <div class="media-body">#}
-{#                                                <span>Doctor 3</span>#}
-{#                                            </div>#}
-{#                                        </a>#}
-{#                                    </li>#}
-{#                                </ul>#}
-{#                            </div>#}
+                            {#                            <div class="dropdown">#}
+                            {#                                <a href="#" class="has-chevron" data-toggle="dropdown" aria-haspopup="true"#}
+                            {#                                   aria-expanded="false">Doctor Name here</a>#}
+                            {#                                <ul class="dropdown-menu">#}
+                            {#                                    <li class="ms-dropdown-list">#}
+                            {#                                        <a class="media p-2" href="#">#}
+                            {#                                            <div class="media-body">#}
+                            {#                                                <span>Doctor 1</span>#}
+                            {#                                            </div>#}
+                            {#                                        </a>#}
+                            {#                                        <a class="media p-2" href="#">#}
+                            {#                                            <div class="media-body">#}
+                            {#                                                <span>Doctor 2</span>#}
+                            {#                                            </div>#}
+                            {#                                        </a>#}
+                            {#                                        <a class="media p-2" href="#">#}
+                            {#                                            <div class="media-body">#}
+                            {#                                                <span>Doctor 3</span>#}
+                            {#                                            </div>#}
+                            {#                                        </a>#}
+                            {#                                    </li>#}
+                            {#                                </ul>#}
+                            {#                            </div>#}
                         </div>
                         <ul class="ms-list clearfix">
                             <li class="ms-list-item">
@@ -1488,6 +1542,7 @@
 <script src="../static/js/Chart.bundle.min.js"></script>
 <script src="../static/js/Chart.Financial.js"></script>
 <script src="../static/js/index-chart.js"></script>
+
 
 <!-- Page Specific Scripts Finish -->
 <script src="../static/js/schedule.js"></script>

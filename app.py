@@ -41,7 +41,8 @@ def index():
     with engine.connect() as connection:
         doctors = connection.execute(select_query).fetchall()
 
-    return render_template('index.html', doctors=doctors, user=get_auth_user())
+    return render_template('index.html', doctors=doctors, user=get_auth_user(),
+                           diagnosis=graphs_api()[0], risk=graphs_api()[1])
 
 
 @app.route('/add-doctor')
@@ -183,6 +184,9 @@ def graphs_api():
             if d in diagnosis:
                 diagnosis[d] += 1
 
+        diagnosis_result = list(diagnosis.values())
+        print(diagnosis_result)
+
         risk_data = [row[1] for row in patients]
         risk = {
             'Dementia': 0,
@@ -195,7 +199,10 @@ def graphs_api():
             if r in risk:
                 risk[r] += 1
 
-    return jsonify({'diagnosis': diagnosis, 'risk': risk})
+        risk_result = list(risk.values())
+        print(risk_result)
+
+    return diagnosis_result, risk_result
 
 
 @app.route('/add-department')

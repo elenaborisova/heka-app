@@ -1,9 +1,9 @@
-async function funDiagnosisRisk() {
-    return fetch('/api/graphs').then(res => res.json());
-}
+// async function funDiagnosisRisk() {
+//     return fetch('/api/graphs').then(res => res.json());
+// }
 
 
-(async function ($) {
+(function ($) {
     'use strict';
 
 
@@ -251,70 +251,69 @@ async function funDiagnosisRisk() {
         }
     });
 
-        const diagnosisAndRisk = await funDiagnosisRisk();
-    console.log(diagnosisAndRisk);
+    // const diagnosisAndRisk = await funDiagnosisRisk();
+    // console.log(diagnosisAndRisk);
+    //
+    // let diagnosisData = [];
+    // diagnosisData.push(diagnosisAndRisk['diagnosis']['Hip fracture']);
+    // diagnosisData.push(diagnosisAndRisk['diagnosis']['Concussion']);
+    // diagnosisData.push(diagnosisAndRisk['diagnosis']['Rib Fracture']);
+    // diagnosisData.push(diagnosisAndRisk['diagnosis']['Arthritis']);
+    //
+    // let riskData = [];
+    // riskData.push(diagnosisAndRisk['risk']['Dementia']);
+    // riskData.push(diagnosisAndRisk['risk']['Strong medication']);
+    // riskData.push(diagnosisAndRisk['risk']['Self harm']);
+    // riskData.push(diagnosisAndRisk['risk']['Low food intake']);
+    //
+    // console.log(diagnosisData);
 
-    let diagnosisData = [];
-    diagnosisData.push(diagnosisAndRisk['diagnosis']['Hip fracture']);
-    diagnosisData.push(diagnosisAndRisk['diagnosis']['Concussion']);
-    diagnosisData.push(diagnosisAndRisk['diagnosis']['Rib Fracture']);
-    diagnosisData.push(diagnosisAndRisk['diagnosis']['Arthritis']);
-
-    let riskData = [];
-    riskData.push(diagnosisAndRisk['risk']['Dementia']);
-    riskData.push(diagnosisAndRisk['risk']['Strong medication']);
-    riskData.push(diagnosisAndRisk['risk']['Self harm']);
-    riskData.push(diagnosisAndRisk['risk']['Low food intake']);
-
-    console.log(diagnosisData);
-
-
-    //Group Bar Chart
-    new Chart(document.getElementById("bar-chart-grouped-diagnosis"), {
-        type: 'bar',
-        data: {
-            labels: ["Hip fracture", "Concussion", "Rib fracture", "Arthritis"],
-            datasets: [
-                {
-                    backgroundColor: "#73C6B6",
-                    data: diagnosisData
-                },
-            ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Diagnosis'
-            },
-            legend: {
-                display: false,
-            },
-        }
-    });
 
     //Group Bar Chart
-    new Chart(document.getElementById("bar-chart-grouped-risk"), {
-        type: 'bar',
-        data: {
-            labels: ["Dementia", "Strong medication", "Self harm", "Low food intake"],
-            datasets: [
-                {
-                    backgroundColor: "#ABEBC6",
-                    data: riskData
-                },
-            ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Risk Factors'
-            },
-            legend: {
-                display: false,
-            },
-        }
-    });
-
+    // new Chart(document.getElementById("bar-chart-grouped-diagnosis"), {
+    //     type: 'bar',
+    //     data: {
+    //         labels: ["Hip fracture", "Concussion", "Rib fracture", "Arthritis"],
+    //         datasets: [
+    //             {
+    //                 backgroundColor: "#73C6B6",
+    //                 data: diagnosisData
+    //             },
+    //         ]
+    //     },
+    //     options: {
+    //         title: {
+    //             display: true,
+    //             text: 'Diagnosis'
+    //         },
+    //         legend: {
+    //             display: false,
+    //         },
+    //     }
+    // });
+    //
+    // //Group Bar Chart
+    // new Chart(document.getElementById("bar-chart-grouped-risk"), {
+    //     type: 'bar',
+    //     data: {
+    //         labels: ["Dementia", "Strong medication", "Self harm", "Low food intake"],
+    //         datasets: [
+    //             {
+    //                 backgroundColor: "#ABEBC6",
+    //                 data: riskData
+    //             },
+    //         ]
+    //     },
+    //     options: {
+    //         title: {
+    //             display: true,
+    //             text: 'Risk Factors'
+    //         },
+    //         legend: {
+    //             display: false,
+    //         },
+    //     }
+    // });
 
 
     //Line Chart 2
