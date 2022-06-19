@@ -160,7 +160,7 @@
     new Chart(document.getElementById("bar-chart-grouped"), {
         type: 'bar',
         data: {
-            labels: ["1900", "1950", "1999", "2050"],
+            labels: ["2019", "2020", "2021", "2022"],
             datasets: [
                 {
                     label: "ICU",
@@ -194,7 +194,7 @@
     // all data
     var data_1 = [1800, 1600, 2300, 2800, 3600, 2900, 3000, 3800, 3600];
     var data_2 = [4100, 3800, 3200, 3400, 2700, 2600, 3300, 3000, 2900];
-    var labels = ["June-11", "Jan-12", "Jan-13", "Jan-14", "Jan-15", "Jan-16", "Jan-17", "Jan-18", "Jan-19"];
+    var labels = ["June-11", "june-12", "june-13", "june-14", "june-15", "june-16", "june-17", "june-18", "june-19"];
 
     var lineChart = new Chart(ctx, {
         type: 'line',
