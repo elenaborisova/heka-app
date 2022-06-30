@@ -7,7 +7,7 @@
       labels: ["Emergency", "ICU", "Neurology", "Cardiology", "Gynaecology"],
       datasets: [{
         label: "Population (millions)",
-        backgroundColor: ["#357ffa", "#f7b11b","#ff6c60","#8663e1","#08bf6f"],
+        backgroundColor: ["#0181a8", "#c6e5e2","#64cbc5","#84bdcb","#08bf6f"],
         data: [2478,5267,734,784,433]
       }]
     },
@@ -28,7 +28,7 @@
           datasets: [
             {
               label: "Patients",
-              backgroundColor: ["#357ffa", "#f7b11b","#ff6c60","#8663e1","#08bf6f"],
+              backgroundColor: ["#0181a8", "#c6e5e2","#64cbc5","#84bdcb","#08bf6f"],
               data: [478,1267,1734,2384,133]
             }
           ]
